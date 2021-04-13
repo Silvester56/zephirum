@@ -21,18 +21,6 @@ function Treemenu:add(child)
 	self.nb = self.nb + 1
 end
 
-function Treemenu:removeselect() -- TODO vérifier existence ailleur et pertinence
-	return self:remove(self.current)
-end
-
-function Treemenu:remove(n)
-	for i = n, self.nb - 2 do
-		self.subs[i] = self.subs[i + 1]
-	end
-	self.nb = self.nb - 1
-	return self.nb
-end
-
 function Treemenu:update(v, old)
 	local x, y = love.mouse.getPosition() -- get the position of the mouse
 

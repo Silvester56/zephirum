@@ -4,16 +4,7 @@ require "virtualkeyboard"
 function love.load()
 	local i = 0
 
-	font = love.graphics.newImageFont("images/font.png",
-	    " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,!?-+/():;%&`'*#=[]\"")
-
---	font = love.graphics.newImageFont("images/pixelfree.png",
---	"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789#.!?: ")
-
---	font = love.graphics.newImageFont("images/opensans.png",
---	"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&'()*+,-./:;<=>?@[\\]^_`{|}~?\"\" ")
-
---	font = love.graphics.newFont("fonts/minimal.otf", 32)
+	font = love.graphics.newImageFont("images/font.png", " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,!?-+/():;%&`'*#=[]\"")
 
 	love.graphics.setFont(font)
 

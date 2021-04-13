@@ -45,20 +45,26 @@ function Circle:update(number)
 	return number
 end
 
+function Circle:printcenter(text, x, y)
+	local posx = x - font:getWidth(text) / 2
+	local posy = y - font:getHeight() / 2
+	love.graphics.print(text, math.floor(posx), math.floor(posy))
+end
+
 function Circle:draw()
 	love.graphics.setColor(self.r, self.g, self.b)
     love.graphics.circle("fill", self.posx, self.posy, 50, 100)
 	love.graphics.setColor(self.textcolor, self.textcolor, self.textcolor)
 	if self.operation == 1 then
-		love.graphics.print("+" .. self.value, self.posx, self.posy)
+		self:printcenter("+" .. self.value, self.posx, self.posy, 9, 17)
 	elseif self.operation == 2 then
-		love.graphics.print("-" .. self.value, self.posx, self.posy)
+		self:printcenter("-" .. self.value, self.posx, self.posy, 9, 17)
 	elseif self.operation == 3 then
-		love.graphics.print("*" .. self.value, self.posx, self.posy)
+		self:printcenter("*" .. self.value, self.posx, self.posy, 9, 17)
 	elseif self.operation == 4 then
-		love.graphics.print("/" .. self.value, self.posx, self.posy)
+		self:printcenter("/" .. self.value, self.posx, self.posy, 9, 17)
 	elseif self.operation == 5 then
-		love.graphics.print("root", self.posx, self.posy)
+		self:printcenter("root", self.posx, self.posy, 9, 17)
 	end
 end
 

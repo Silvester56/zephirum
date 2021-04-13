@@ -22,7 +22,8 @@ function Game:init()
 end
 
 function Game:add()
-	local val = math.random(5)
+	local max = 5;
+	local val
 	local op = math.random(4) -- +, -, *, /, square root
 	local center = love.graphics.getWidth() / 2
 
@@ -32,12 +33,14 @@ function Game:add()
 		end
 	end
 
-	if self.integer > -10 or self.integer < 10 then
-		val = math.random(3)
+	if self.integer > -10 and self.integer < 10 then
+		max = 3
 	end
 
 	if op >= 3 then
-		val = 1 + math.random(4)
+		val = 1 + math.random(max - 1)
+	else
+		val = math.random(max)
 	end
 
 	for i = 0, self.nb - 1 do
