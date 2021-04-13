@@ -136,13 +136,12 @@ end
 function love.draw()
 	local x, y = love.mouse.getPosition() -- get the position of the mouse
 
-
+	love.graphics.clear(0.75, 0.75, 0.75)
 	if number == 2 then -- Draw game
 		game:draw()
 	else
 		tmenu:draw()
-		love.graphics.setColor(255, 255, 255)
-
+		love.graphics.setColor(1, 1, 1)
 		if number == 6 then -- Draw options
 			love.graphics.print("Volume : " .. volume, 100, 400)
 		elseif number == 8 then -- Draw how to play

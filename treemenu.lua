@@ -88,8 +88,9 @@ function Treemenu:draw()
 		self.subs[self.inchild]:draw()
     else
 		for i = 0, self.nb - 1 do
-			love.graphics.setColor(255, 255, 255)
+			love.graphics.setColor(1, 1, 1)
 			if i == self.current then
+				love.graphics.setColor(0.5, 0.5, 0.5)
 				love.graphics.print(self.subs[i]:getname(), self.posx + self.anim / 4, self.posy + self.pad * i)
 			else
 				love.graphics.print(self.subs[i]:getname(), self.posx, self.posy + self.pad * i)

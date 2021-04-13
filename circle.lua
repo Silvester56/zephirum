@@ -8,15 +8,15 @@ function Circle:init(x, y, r, val, op)
 	self.r = math.random(150) / 255
 	self.g = math.random(150) / 255
 	self.b = math.random(150) / 255
-	self.textcolor = 255
+	self.textcolor = 1
 	if op == 5 then
-		self.r = 220
-		self.g = 220
-		self.b = 220
-		self.textcolor = 150
+		self.r = 0.8
+		self.g = 0.8
+		self.b = 0.8
+		self.textcolor = 0.6
 	end
 	self.value = val
-	self.operation = op	
+	self.operation = op
 end
 
 function Circle:update(number)
@@ -34,10 +34,9 @@ function Circle:update(number)
 			if number % self.value == 0 then
 				return number / self.value
 			else
-				self.r = 255
+				self.r = 0.8
 				self.g = 0
 				self.b = 0
-				-- Add penalty to timer and make the circle 0
 			end
 		elseif self.operation == 5 then
 			return math.sqrt(number)

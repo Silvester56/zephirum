@@ -115,22 +115,15 @@ function Game:draw()
 			self.gamesound:play()
 			self.notplayed = false
 		end
-		love.graphics.setColor(255, 255, 255)
+		love.graphics.setColor(1, 1, 1)
 		love.graphics.print("GAME!", width / 2, 300, 0, 3, 3)
 		self.tmenu:draw()
 	else
-		-- local f = self.nb - 1
-		-- local g = table.getn(self.circles)
-
 		for i = 0, self.nb - 1 do
 			self.circles[i]:draw(width / 2 + (100 * (i - self.nb / 2)), 200)
 		end
 	end
-	love.graphics.setColor(255, 255, 255)
+	love.graphics.setColor(1, 1, 1)
 	love.graphics.print(self.integer, width / 2, 30, 0, 2, 2)
 	love.graphics.print(printable(self.minutes) .. ":" .. printable(self.seconds) .. ":" .. self.centis, width / 2, 400, 0, 2, 2)
-	love.graphics.print("nb : " .. self.nb .. "max : " .. self.max .. "table.getn(self.circles) : " .. table.getn(self.circles), 50, 450)
-	-- if (f == g) then
-	-- 	love.graphics.print("f", 50, 500) -- Why tho?
-	-- end
 end
