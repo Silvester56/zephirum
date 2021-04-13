@@ -25,6 +25,7 @@ function love.load()
 	vk:bind("select", "space")
 
 	volume = 0
+	azerty = true
 
 	click = false
 	rclick = false
@@ -51,8 +52,10 @@ function love.load()
 		tplay = Treemenu:new(100, 100, 30, "Play", 2)
 
 		toptions = Treemenu:new(100, 100, 30, "Options", 6)
+			tmode = Treemenu:new(100, 100, 30, "Input mode : AZERTY", 9)
 		toptions:add(Treemenu:new(100, 100, 30, "Vol+", 3))
 		toptions:add(Treemenu:new(100, 100, 30, "Vol-", 4))
+		toptions:add(tmode)
 		toptions:add(Treemenu:new(100, 100, 30, "Back", 1))
 
 		thow = Treemenu:new(100, 100, 30, "How to play", 8)
@@ -103,12 +106,22 @@ function love.update(dt)
 		volume = volume - 1
 	elseif number == 5 then
 		love.event.push('quit')
-	elseif number == 8 then -- How to play
-
 	elseif number == 7 then
 		inmenu = true
 		menumusic:play()
 		game = Game:new()
+	elseif number == 8 then -- How to play
+	elseif number == 9 then
+		azerty = not azerty
+		if azerty then
+			tmode:setname("Input mode : AZERTY")
+			vk:bind("left", "q")
+			vk:bind("up", "z")
+		else
+			tmode:setname("Input mode : QWERTY")
+			vk:bind("left", "a")
+			vk:bind("up", "w")
+		end
 	end
 
 	if dropradius > 0 then

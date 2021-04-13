@@ -102,6 +102,10 @@ function Treemenu:getname()
 	return self.name
 end
 
+function Treemenu:setname(str)
+	self.name = str
+end
+
 function Treemenu:getnb()
 	return self.nb
 end
