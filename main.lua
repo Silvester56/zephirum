@@ -38,25 +38,31 @@ function love.load()
 	love.graphics.setBackgroundColor(200, 200, 200)
 	menumusic:play()
 
-	tmenu = Treemenu:new(100, 100, 30, "Menu", 0)
+	tmenu = Treemenu:new(100, 100, 45, "Menu", 0)
 
-		tplay = Treemenu:new(100, 100, 30, "Play", 2)
+		tplay = Treemenu:new(100, 100, 45, "Play", 2)
 
-		toptions = Treemenu:new(100, 100, 30, "Options", 6)
-			tmode = Treemenu:new(100, 100, 30, "Input mode : AZERTY", 9)
-		toptions:add(Treemenu:new(100, 100, 30, "Vol+", 3))
-		toptions:add(Treemenu:new(100, 100, 30, "Vol-", 4))
+		toptions = Treemenu:new(100, 100, 45, "Options", 6)
+			tmode = Treemenu:new(100, 100, 45, "Input mode : AZERTY", 9)
+		toptions:add(Treemenu:new(100, 100, 45, "Vol+", 3))
+		toptions:add(Treemenu:new(100, 100, 45, "Vol-", 4))
 		toptions:add(tmode)
-		toptions:add(Treemenu:new(100, 100, 30, "Back", 1))
+		toptions:add(Treemenu:new(100, 100, 45, "Back", 1))
 
-		thow = Treemenu:new(100, 100, 30, "How to play", 8)
-		thow:add(Treemenu:new(100, 100, 30, "Back", 1))
+		thow = Treemenu:new(100, 100, 45, "How to play", 8)
+		thow:add(Treemenu:new(100, 100, 45, "Back", 1))
 
-		tquit = Treemenu:new(100, 100, 30, "Quit", 5)
+		tquit = Treemenu:new(100, 100, 45, "Quit", 5)
 	tmenu:add(tplay)
 	tmenu:add(toptions)
 	tmenu:add(thow)
 	tmenu:add(tquit)
+end
+
+function love.graphics.printAtCenter(text, x, y, scale)
+	local posx = x - font:getWidth(text) * scale / 2
+	local posy = y - font:getHeight() * scale / 2
+	love.graphics.print(text, math.floor(posx), math.floor(posy), 0, scale, scale)
 end
 
 function love.mousepressed(x, y, button, istouch)
@@ -134,9 +140,9 @@ function love.draw()
 		tmenu:draw()
 		love.graphics.setColor(1, 1, 1)
 		if number == 6 then -- Draw options
-			love.graphics.print("Volume : " .. volume, 100, 400)
+			love.graphics.print("Volume : " .. volume, 100, 400, 0, 2, 2)
 		elseif number == 8 then -- Draw how to play
-			love.graphics.print("Click on the circles to bring the number to zero.\nPress space to generate new circles.\nDon't click on circles if the operation can't generate an integer.\nGood luck !", 100, 200)
+			love.graphics.printf("Click on the circles to bring the number to zero.\nPress space to display new circles.\nDon't click on circles if the operation can't generate an integer.\nGood luck !", 100, 200, 300, "left", 0, 2, 2)
 		end
 	end
 	love.graphics.setColor(0, 0, 0)

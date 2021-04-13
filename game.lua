@@ -14,9 +14,9 @@ function Game:init()
 	self.minutes = 0
 	self.seconds = 0
 	self.centis = 0
-	self.tmenu = Treemenu:new(100, 100, 30, "Menu", 0)
-	self.tmenu:add(Treemenu:new(100, 100, 30, "Try again", 2))
-	self.tmenu:add(Treemenu:new(100, 100, 30, "Back", 1))
+	self.tmenu = Treemenu:new(100, 100, 45, "Menu", 0)
+	self.tmenu:add(Treemenu:new(100, 100, 45, "Try again", 2))
+	self.tmenu:add(Treemenu:new(100, 100, 45, "Back", 1))
 	self.notplayed = true
 	self.gamesound = love.audio.newSource("sounds/game.mp3", "static")
 end
